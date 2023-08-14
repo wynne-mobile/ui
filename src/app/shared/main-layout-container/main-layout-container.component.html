@@ -1,0 +1,26 @@
+<mat-toolbar color="accent" style="margin-bottom: 2rem;">
+    <button routerLink="/" mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
+        <mat-icon>account_circle</mat-icon>
+    </button>
+    <div class="driver-name"><span>John Doe</span>
+        <p>TRK 0001</p>
+    </div>
+    <span class="example-spacer"></span>
+    <div class="status">
+        <button mat-button extended [matMenuTriggerFor]="menu">
+            <mat-icon>expand_more</mat-icon>
+            Off Duty
+        </button>
+        <mat-menu #menu="matMenu">
+            <button mat-menu-item>
+                <mat-icon>chevron_right</mat-icon>
+                <span>On Duty</span>
+            </button> 
+            <button mat-menu-item>
+                <mat-icon>chevron_right</mat-icon>
+                <span>Other</span>
+            </button> 
+        </mat-menu>
+    </div>
+</mat-toolbar>
+<router-outlet></router-outlet>

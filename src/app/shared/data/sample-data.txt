@@ -1,0 +1,97 @@
+[
+  '{{repeat(8)}}',
+  {
+    id: '{{guid()}}', 
+    isOpen: 'false', 
+    isRunning: '{{bool()}}', 
+    order: {
+      number: '{{integer(10000, 99999)}}',
+      status: '{{random("OnRoute", "OnSite", "Completed")}}',
+      address: '{{integer(100, 999)}} {{street()}}, {{city()}}, {{state()}}, {{integer(100, 10000)}}',
+      createdDate: '{{date(new Date(2023, 07, 25), new Date(), "YYYY-MM-ddThh:mm:ss Z")}}'
+    },
+    jobsite: {
+          company: '{{city()}} {{state()}}'
+    },
+    contact: {
+          name: '{{firstName()}} {{surname()}}',
+          email: '{{email()}}',	
+          phone: '+1 {{phone()}}'
+    }, 
+    loads: [
+      '{{repeat(1,6)}}',
+      {
+        id: '{{guid()}}',
+        mode: '{{random("Driver", "Mechanic")}}',
+        number: '{{integer(10000, 99999)}}',
+        orderNumber: '{{integer(10000, 99999)}}',
+        status: '{{random("OnRoute", "OnSite", "Completed")}}',
+        refNumber: '{{integer(10000, 99999)}}',
+        driverDetail: {
+          status: '{{random("delivery", "pickup")}}',
+          make: '{{random("TOYO", "MESC", "HUND")}}',
+          model: '{{random("X350", "EV300", "50XTK")}}',
+          machineId: '{{random("A", "V", "J")}}-{{integer(100, 999)}}', 
+          machine: '{{random("Scissor Lift", "Boom Lift", "Warehohouse Forklift", "Telehandler", "Skid Steer", "Compact Track Loader", "Excavator", "Backhole Loaders", "Air Compressor", "Towable Light Tower")}}',
+          stockNumber: '{{random("A", "V", "J")}}-{{integer(10000, 99999)}}-{{integer(100, 999)}}',
+          pin: '{{random("CA", "TX", "NY")}}{{integer(100000, 999999)}}',
+          type: '{{random("TRUCK", "MACHINE", "TOOLS")}}',
+          lastKnowLocation: 'N/A', 
+          quantity: '{{integer(100, 999)}}', 
+          rate: '{{integer(10, 9999)}}', 
+          received: 'N/A', 
+          originalDimension: '{{integer(1, 20)}}x{{integer(1, 20)}}x{{integer(1, 20)}}', 
+          weight: '{{integer(10, 9999)}}', 
+          picture: 'http://placehold.it/32x32',  
+          attachments: [
+            '{{repeat(0,4)}}',
+            {
+              id: '{{guid()}}',
+              picture: 'http://placehold.it/32x32',
+              createdDate: "{{date(new Date(2023, 07, 25), new Date(), \"YYYY-MM-ddThh:mm:ss Z\")}}"
+            }
+          ]
+        },
+        mechanicDetail: {
+          make: '{{random("TOYO", "MESC", "HUND")}}',
+          model: '{{random("X350", "EV300", "50XTK")}}',
+          issue: '{{random("Broken Windshield", "U-Join Failure", "Breake Issue", "Wheel Bearings & Tires", "Preventative Maintenance")}}',
+          machine: '{{random("Scissor Lift", "Boom Lift", "Warehohouse Forklift", "Telehandler", "Skid Steer", "Compact Track Loader", "Excavator", "Backhole Loaders", "Air Compressor", "Towable Light Tower")}}',
+          machineId: '{{random("A", "V", "J")}}-{{integer(100, 999)}}', 
+          estimateHours: '{{integer(1, 4)}}',
+          picture: 'http://placehold.it/32x32',  
+          attachments: [
+            '{{repeat(0,4)}}',
+            {
+              id: '{{guid()}}',
+              picture: 'http://placehold.it/32x32',
+              createdDate: "{{date(new Date(2023, 07, 25), new Date(), \"YYYY-MM-ddThh:mm:ss Z\")}}"
+            }
+          ]
+        }
+      }
+    ],
+    pictures: [
+      '{{ repeat(0,3) }}',
+      {
+          picture: 'http://placehold.it/32x32',
+          createdDate: "{{date(new Date(2023, 07, 25), new Date(), \"YYYY-MM-ddThh:mm:ss Z\")}}"
+      }
+    ],
+    signatures: [
+      '{{ repeat(0,3) }}',
+      {
+          createdDate: "{{date(new Date(2023, 07, 25), new Date(), \"YYYY-MM-ddThh:mm:ss Z\")}}"
+      }
+    ],
+    smartforms: [
+      '{{ repeat(0,3) }}',
+      {
+        name: '{{random("CONTRACT AGREEMENT", "LEASE CONTRACT", "CHECK UP ENGINES")}}',
+        createdDate: "{{date(new Date(2023, 07, 25), new Date(), \"YYYY-MM-ddThh:mm:ss Z\")}}"
+      }
+    ],
+    
+    notes: '{{random("Gate Code #1221", "N/A")}}' 
+  }
+]

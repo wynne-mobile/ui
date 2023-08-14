@@ -1,0 +1,130 @@
+<mat-toolbar color="accent">
+    <button routerLink="/dashboard" mat-icon-button class="example-icon"
+        aria-label="Example icon-button with menu icon">
+        <mat-icon>keyboard_arrow_left</mat-icon>
+    </button>
+    <div>
+        <span>Settings</span>
+    </div>
+</mat-toolbar>
+<div class="container">
+    <div class="row mt-2">
+        <!-- Apprearance -->
+        <div class="row">
+            <div class="col-12">
+                <button mat-button color="accent">
+                    <mat-icon>computer</mat-icon>
+                    Apprearance
+                </button>
+            </div>
+            <div class="col-12">
+                <ul class="list-group">
+                    <li class="list-group-item">
+                        <div class="row">
+                            <div class="col-1"><mat-icon>apps</mat-icon></div>
+                            <div class="col ms-2 p-1">
+                                <span>Version</span>
+                            </div>
+                            <div class="col-4 pt-1 text-right">
+                                <span>1.0.14.37</span>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="list-group-item">
+                        <div class="row">
+                            <div class="col-1"><mat-icon>language</mat-icon></div>
+                            <div class="col ms-2 p-1">
+                                <span>Display Languade</span>
+                            </div>
+                            <div class="col-4 pt-1">
+                                <select class="custom-select">
+                                    <option value="English">English</option>
+                                    <option value="Spanish">Spanish</option>
+                                    <option value="French">French</option>
+                                </select>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="list-group-item">
+                        <div class="row">
+                            <div class="col-1"><mat-icon>format_size</mat-icon></div>
+                            <div class="col ms-2 p-1">
+                                <span>Display Text Size</span>
+                            </div>
+                            <div class="col-4 pt-1">
+                                <select class="custom-select">
+                                    <option value="Small">Small</option>
+                                    <option value="Medium">Medium</option>
+                                    <option value="Large">Large</option>
+                                </select>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="list-group-item">
+                        <div class="row">
+                            <div class="col-1"><mat-icon>wb_sunny</mat-icon></div>
+                            <div class="col ms-2 p-1">
+                                <span>Dark Mode</span>
+                            </div>
+                            <div class="col-1 me-4"><mat-slide-toggle></mat-slide-toggle></div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <!-- Security -->
+        <div class="row">
+            <div class="col-12">
+                <button mat-button color="accent">
+                    <mat-icon>security</mat-icon>
+                    Security
+                </button>
+            </div>
+            <div class="col-12">
+                <ul class="list-group">
+                    <li class="list-group-item">
+                        <div class="row">
+                            <div class="col-1"><mat-icon>fingerprint</mat-icon></div>
+                            <div class="col ms-2 p-1">
+                                <span>Login with Biometric</span>
+                            </div>
+                            <div class="col-1 me-4"><mat-slide-toggle></mat-slide-toggle></div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <!-- Data -->
+        <div class="row">
+            <div class="col-12">
+                <button mat-button color="accent">
+                    <mat-icon>storage</mat-icon>
+                    Data
+                </button>
+            </div>
+            <div class="col-12">
+                <ul class="list-group">
+                    <li class="list-group-item">
+                        <div class="row">
+                            <div class="col-1"><mat-icon>done</mat-icon></div>
+                            <div class="col ms-2 p-1">
+                                Hide Completed Stops
+                            </div>
+                            <div class="col-1 me-4"><mat-slide-toggle></mat-slide-toggle></div>
+                        </div>
+                    </li>
+                    <li class="list-group-item">
+                        <div class="row">
+                            <div class="col text-center">
+                                <button class="btn btn-light form-control">
+                                    <mat-icon class="">cloud_sync</mat-icon> <span class="ms-2">Sync Data Now</span>
+                                </button> 
+                                <mat-progress-bar mode="indeterminate" color="accent"></mat-progress-bar>
+                            </div>
+                        </div> 
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>

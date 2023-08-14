@@ -1,0 +1,37 @@
+<div class="main-container">
+    <div>
+        <img class="company-logo" src="assets/images/logo.png" alt="">
+        <p class="company-text">Wynne Systems</p>
+        <p class="title-text">Welcome</p>
+        <div class="login-form">
+            <div>
+                <mat-form-field class="mat-form-field" color="accent">
+                    <mat-label>Email Address</mat-label>
+                    <input matInput placeholder="your-name@company.com">
+                </mat-form-field>
+                <mat-form-field class="mat-form-field" color="accent" type="password">
+                    <mat-label>Password</mat-label>
+                    <input matInput type="text">
+                </mat-form-field>
+            </div>
+            <mat-grid-list cols="2" rowHeight="2:1"> 
+                <mat-grid-tile> <mat-checkbox class="remember-me-cbx">Remember Me</mat-checkbox></mat-grid-tile>
+                <mat-grid-tile>
+                    <button routerLink="/dashboard" mat-fab extended class="mat-form-field" color="accent">
+                        <mat-icon>key</mat-icon>
+                        Login
+                    </button>
+                </mat-grid-tile> 
+            </mat-grid-list> 
+            <mat-divider></mat-divider>
+            <div class="row">
+                <div class="col">Forgot My Password?</div>
+            </div>
+        </div>
+    </div>
+    <div class="support-container">
+        <div>Version 1.0.14.037</div>
+        <div>Copyright 2023 WynneSystems</div>
+        <div>By logging into the app, you agreed with our <strong>Privacy Policy</strong></div>
+    </div>
+</div> 

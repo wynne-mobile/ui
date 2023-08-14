@@ -1,0 +1,236 @@
+<mat-toolbar color="accent">
+  <button routerLink="/task" mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
+    <mat-icon>keyboard_arrow_left</mat-icon>
+  </button>
+  <div *ngIf="load.mode === 'Driver'">
+    <div class="wynn-icon {{ load.driverDetail.status }}-truck"></div>
+    <span class="ms-2">{{ load.driverDetail.status | uppercase }} #{{ load.number }}</span>
+  </div>
+  <div *ngIf="load.mode === 'Mechanic'">
+    <div *ngIf="load.mode === 'Mechanic'" class="wynn-icon mechanic"></div>
+    <span class="ms-2">Mechanic #{{ load.number }}</span>
+  </div>
+</mat-toolbar>
+<div class="container">
+  <!-- Driver Mode -->
+  <div *ngIf="load.mode === 'Driver'" class="row mt-2">
+    <div class="col-12">
+      <div class="header-bar">General Info</div>
+      <ul class="list-group">
+        <li class="list-group-item text-center">
+          <img src="./assets/item1.jpg" alt="" class="img-fluid img-item">
+        </li>
+        <li class="list-group-item">
+          <span class="strong">Machine ID</span>
+          <span class="float-end">{{ load.mechanicDetail.machineId }}</span>
+        </li>
+        <li class="list-group-item">
+          <span class="strong">Order Number</span>
+          <span class="float-end">{{ load.orderNumber }}</span>
+        </li>
+        <li class="list-group-item">
+          <span class="strong">Make</span>
+          <span class="float-end">{{ load.driverDetail.make }}</span>
+        </li>
+        <li class="list-group-item">
+          <span class="strong">Model</span>
+          <span class="float-end">{{ load.driverDetail.model }}</span>
+        </li>
+        <li class="list-group-item">
+          <span class="strong">Stock Number</span>
+          <span class="float-end">{{ load.driverDetail.stockNumber }}</span>
+        </li>
+        <li class="list-group-item">
+          <span class="strong">PIN</span>
+          <span class="float-end">{{ load.driverDetail.pin }}</span>
+        </li>
+        <li class="list-group-item">
+          <span class="strong">Type</span>
+          <span class="float-end">{{ load.driverDetail.type }}</span>
+        </li>
+        <li class="list-group-item">
+          <span class="strong">Last Known Location</span>
+          <span class="float-end">{{ load.driverDetail.lastKnowLocation }}</span>
+        </li>
+      </ul>
+    </div>
+    <div class="col-12">
+      <div class="header-bar">Requirement</div>
+      <ul class="list-group">
+        <li class="list-group-item text-center">
+          <div class="row">
+            <div class="col">
+              <div class="form-check">
+                <input class="form-check-input" type="checkbox" value="" id="chx1">
+                <label class="form-check-label" for="chx1">
+                  Permit
+                </label>
+              </div>
+            </div>
+            <div class="col">
+              <div class="form-check">
+                <input class="form-check-input" type="checkbox" value="" id="chx2">
+                <label class="form-check-label" for="chx2">
+                  Pilot
+                </label>
+              </div>
+            </div>
+            <div class="col">
+              <div class="form-check">
+                <input class="form-check-input" type="checkbox" value="" id="chx3">
+                <label class="form-check-label" for="chx3">
+                  Stackable
+                </label>
+              </div>
+            </div>
+          </div>
+        </li>
+        <li class="list-group-item">
+          <span class="strong">Quantity</span>
+          <span class="float-end">{{ load.driverDetail.quantity }}</span>
+        </li>
+        <li class="list-group-item">
+          <span class="strong">Rate</span>
+          <span class="float-end">{{ load.driverDetail.rate | currency }}</span>
+        </li>
+        <li class="list-group-item">
+          <span class="strong">Total Cost</span>
+          <span class="float-end">{{ load.driverDetail.quantity * load.driverDetail.rate | currency}}</span>
+        </li>
+        <li class="list-group-item">
+          <span class="strong">Received</span>
+          <span class="float-end">{{ load.driverDetail.received }}</span>
+        </li>
+        <li class="list-group-item">
+          <span class="strong">Org. Dimension (LxWxH)</span>
+          <span class="float-end">{{ load.driverDetail.originalDimension }}</span>
+        </li>
+        <li class="list-group-item">
+          <span class="strong">Weight</span>
+          <span class="float-end">{{ load.driverDetail.weight }} lbs</span>
+        </li>
+      </ul>
+    </div>
+    <mat-tab-group class="mat-bottom-screen" backgroundColor="accent">
+      <mat-tab>
+        <ng-template mat-tab-label>
+          <mat-icon class="example-tab-icon">location_on</mat-icon>
+          <span>Location</span>
+        </ng-template>
+      </mat-tab>
+      <mat-tab>
+        <ng-template mat-tab-label>
+          <mat-icon class="example-tab-icon">camera_alt</mat-icon>
+          <span>Pictures</span>
+        </ng-template>
+      </mat-tab>
+      <mat-tab>
+        <ng-template mat-tab-label>
+          <mat-icon class="example-tab-icon">playlist_add_check</mat-icon>
+          <span>Check List</span>
+        </ng-template>
+      </mat-tab>
+      <mat-tab>
+        <ng-template mat-tab-label>
+          <mat-icon class="example-tab-icon">gesture</mat-icon>
+          <span>Signature</span>
+        </ng-template>
+      </mat-tab>
+      <mat-tab>
+        <ng-template mat-tab-label>
+          <mat-icon class="example-tab-icon">attach_file</mat-icon>
+          <span>File Attach</span>
+        </ng-template>
+      </mat-tab>
+    </mat-tab-group>
+  </div>
+  <!-- Mechanic Mode -->
+  <div *ngIf="load.mode === 'Mechanic'" class="row mt-2">
+    <div class="col">
+      <div class="header-bar">General Info</div>
+      <ul class="list-group">
+        <li class="list-group-item text-center">
+          <img src="./assets/item1.jpg" alt="" class="img-fluid img-item">
+        </li>
+        <li class="list-group-item">
+          <span class="strong">Machine</span>
+          <span class="float-end">{{ load.mechanicDetail.machine }} {{ load.mechanicDetail.machineId }}</span>
+        </li>
+        <li class="list-group-item">
+          <span class="strong">Order Number</span>
+          <span class="float-end">{{ load.orderNumber }}</span>
+        </li>
+        <li class="list-group-item">
+          <span class="strong">Reference Number</span>
+          <span class="float-end">{{ load.refNumber }}</span>
+        </li>
+        <li class="list-group-item">
+          <span class="strong">Issue</span>
+          <span class="float-end">{{ load.mechanicDetail.issue }}</span>
+        </li>
+        <li class="list-group-item">
+          <span class="strong">Estimate</span>
+          <span class="float-end">--</span>
+        </li>
+        <li class="list-group-item">
+          <span class="strong">Work Order Stage</span>
+          <span class="float-end">Pending</span>
+        </li>
+        <li class="list-group-item">
+          <span class="strong">Parts Stage</span>
+          <span class="float-end">Pending</span>
+        </li>
+      </ul>
+
+      <ul class="list-group mt-2">
+        <li class="list-group-item">
+          <div class="row">
+            <div class="col">
+              <button mat-raised-button color="accent" style="width: 100%;"><mat-icon>av_timer</mat-icon>
+                Attendances</button>
+            </div>
+            <div class="col text-right">
+              <h2 class="float-end">00:00</h2>
+            </div>
+          </div>
+          <div class="row mt-2">
+            <div class="col">
+              <button mat-raised-button color="accent" style="width: 100%;">
+                <mat-icon>check</mat-icon> Complete Work Order</button>
+            </div>
+          </div>
+        </li>
+      </ul>
+    </div> 
+  </div>
+  <div *ngIf="!isMenuListFullScreen" class="mat-bottom-screen row">
+    <div class="col-1">
+      <span (click)="isMenuListFullScreen=!isMenuListFullScreen"><mat-icon>zoom_out_map</mat-icon></span>
+    </div>
+    <div class="col-11">
+      <mat-tab-group backgroundColor="accent">
+        <mat-tab *ngFor="let m of menuList; let i = index;">
+          <ng-template mat-tab-label>
+            <mat-icon>{{ m.icon }}</mat-icon>
+            <span>{{ m.name }}</span>
+          </ng-template>
+        </mat-tab>
+      </mat-tab-group>
+    </div>
+  </div>
+  <div *ngIf="isMenuListFullScreen" class="mat-bottom-screen-expand row">
+    <div class="col-12">
+      <span (click)="isMenuListFullScreen=!isMenuListFullScreen"><mat-icon>zoom_in_map</mat-icon></span>
+    </div>
+    <div class="col-12">
+      <div class="row p-3">
+        <div class="col-6 text-center mb-3" *ngFor="let m of menuList; let i = index;">
+          <div class="card p-3 text-center">
+            <mat-icon class="x2">{{ m.icon }}</mat-icon>
+          <div>{{ m.name }}</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

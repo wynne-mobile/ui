@@ -1,0 +1,25 @@
+<!-- <div class="row">
+    <div class="col p-2">
+        <div class="ps-2"> <mat-slide-toggle [ngModel]="isLoadSameType" (ngModelChange)="isLoadSameType=!isLoadSameType" color="accent">Apply for same load type</mat-slide-toggle> </div>
+    </div>
+</div> -->
+
+<ul class="list-group">
+    <li class="list-group-item" *ngFor="let load of loads; let i = index;">
+        <div *ngIf="load.mode === 'Driver'" class="wynn-icon wynn-icon-sm {{ load.driverDetail.status }}-truck">
+        </div>
+        <div *ngIf="load.mode === 'Mechanic'" class="wynn-icon wynn-icon-sm mechanic"></div>
+        <strong class="ms-2">#{{ load.number }}</strong>
+        <div class="float-end">
+            <select class="select" [ngModel]="load.status" (ngModelChange)="onStatusChange(load, $event)">
+                <option *ngFor="let s of statuses" [value]="s">{{ s }}</option>
+            </select>
+        </div>
+    </li>
+    <li class="list-group-item">
+        <div class="btn-group btn-group-sm" style="display: flex;">
+            <button type="button" class="btn btn-outline-secondary">Cancel</button>
+            <button type="button" class="btn btn-outline-secondary">Apply</button> 
+        </div>
+    </li>
+</ul>

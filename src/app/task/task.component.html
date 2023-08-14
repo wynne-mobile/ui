@@ -1,0 +1,100 @@
+<mat-toolbar color="accent">
+    <button routerLink="/dashboard" mat-icon-button class="example-icon"
+        aria-label="Example icon-button with menu icon">
+        <mat-icon>keyboard_arrow_left</mat-icon>
+    </button>
+    <div>
+        <span>Task List</span>
+    </div>
+</mat-toolbar>
+<mat-tab-group mat-stretch-tabs="false" mat-align-tabs="center" backgroundColor="accent">
+    <mat-tab label="Past (5)">
+        <div class="container">
+            <div class="row">
+                <div class="col p-3">
+                      
+                    <div id="accordion-status-onroute-content" class="accordion-collapse collapse show p-0 m-0"
+                    data-bs-parent="#accordion-status-onroute">
+                    <div class="accordion-body p-0 m-0"> 
+                        <div class="card mb-2" *ngFor="let task of taskList; let i = index;">  
+                            <app-task-item-list [task]="task"></app-task-item-list>
+                        </div>
+                    </div>
+                </div>
+                    <div class="accordion" id="accordion-status-onroute">  
+                        <!-- On Route -->
+                        <!-- <div class="accordion-item">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button p-1" type="button" data-bs-toggle="collapse"
+                                    data-bs-target="#accordion-status-onroute-content" aria-expanded="true" aria-controls="accordion-status-onroute-content">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                    fill="currentColor" class="bi bi-truck ms-2" viewBox="0 0 16 16">
+                                    <path
+                                        d="M0 3.5A1.5 1.5 0 0 1 1.5 2h9A1.5 1.5 0 0 1 12 3.5V5h1.02a1.5 1.5 0 0 1 1.17.563l1.481 1.85a1.5 1.5 0 0 1 .329.938V10.5a1.5 1.5 0 0 1-1.5 1.5H14a2 2 0 1 1-4 0H5a2 2 0 1 1-3.998-.085A1.5 1.5 0 0 1 0 10.5v-7zm1.294 7.456A1.999 1.999 0 0 1 4.732 11h5.536a2.01 2.01 0 0 1 .732-.732V3.5a.5.5 0 0 0-.5-.5h-9a.5.5 0 0 0-.5.5v7a.5.5 0 0 0 .294.456zM12 10a2 2 0 0 1 1.732 1h.768a.5.5 0 0 0 .5-.5V8.35a.5.5 0 0 0-.11-.312l-1.48-1.85A.5.5 0 0 0 13.02 6H12v4zm-9 1a1 1 0 1 0 0 2 1 1 0 0 0 0-2zm9 0a1 1 0 1 0 0 2 1 1 0 0 0 0-2z" />
+                                </svg>     
+                                <span class="ms-2">On Route ({{ taskListOnRoute.length }})</span>
+                                </button>
+                            </h2>       
+                            <div id="accordion-status-onroute-content" class="accordion-collapse collapse show p-0 m-0"
+                                data-bs-parent="#accordion-status-onroute">
+                                <div class="accordion-body p-0 m-0"> 
+                                    <div class="card mb-2" *ngFor="let task of taskListOnRoute; let i = index;">  
+                                        <app-task-item-list [task]="task"></app-task-item-list>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>  -->
+                        <!-- On Site -->
+                        <!-- <div class="accordion-item">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button p-1" type="button" data-bs-toggle="collapse"
+                                    data-bs-target="#accordion-status-onsite-content" aria-expanded="true" aria-controls="accordion-status-onsite-content">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-pin-map" viewBox="0 0 16 16">
+                                        <path fill-rule="evenodd" d="M3.1 11.2a.5.5 0 0 1 .4-.2H6a.5.5 0 0 1 0 1H3.75L1.5 15h13l-2.25-3H10a.5.5 0 0 1 0-1h2.5a.5.5 0 0 1 .4.2l3 4a.5.5 0 0 1-.4.8H.5a.5.5 0 0 1-.4-.8l3-4z"/>
+                                        <path fill-rule="evenodd" d="M8 1a3 3 0 1 0 0 6 3 3 0 0 0 0-6zM4 4a4 4 0 1 1 4.5 3.969V13.5a.5.5 0 0 1-1 0V7.97A4 4 0 0 1 4 3.999z"/>
+                                      </svg>
+                                <span class="ms-2">On Site ({{ taskListOnSite.length }})</span>
+                                </button>
+                            </h2>
+                            <div id="accordion-status-onsite-content" class="accordion-collapse collapse show p-0 m-0"
+                                data-bs-parent="#accordion-status-onsite">
+                                <div class="accordion-body p-0 m-0"> 
+                                    <div class="card mb-2" *ngFor="let task of taskListOnSite; let i = index;"> 
+                                        <app-task-item-list [task]="task"></app-task-item-list>
+                                    </div>
+                                </div>
+                            </div>
+                        </div> -->
+                        <!-- Completed --> 
+                        <!-- <div class="accordion-item">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button p-1" type="button" data-bs-toggle="collapse"
+                                    data-bs-target="#accordion-status-completed-content" aria-expanded="true" aria-controls="accordion-status-completed-content">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32"
+                                                        fill="currentColor" class="bi bi-check2-circle"
+                                                        viewBox="0 0 16 16">
+                                                        <path
+                                                            d="M2.5 8a5.5 5.5 0 0 1 8.25-4.764.5.5 0 0 0 .5-.866A6.5 6.5 0 1 0 14.5 8a.5.5 0 0 0-1 0 5.5 5.5 0 1 1-11 0z" />
+                                                        <path
+                                                            d="M15.354 3.354a.5.5 0 0 0-.708-.708L8 9.293 5.354 6.646a.5.5 0 1 0-.708.708l3 3a.5.5 0 0 0 .708 0l7-7z" />
+                                                    </svg>
+                                <span class="ms-2">Completed ({{ taskListCompleted.length }})</span>
+                                </button>
+                            </h2>
+                            <div id="accordion-status-completed-content" class="accordion-collapse collapse show p-0 m-0"
+                                data-bs-parent="#accordion-status-completed">
+                                <div class="accordion-body p-0 m-0"> 
+                                    <div class="card mb-2" *ngFor="let task of taskListCompleted; let i = index;"> 
+                                        <app-task-item-list [task]="task"></app-task-item-list>
+                                    </div>
+                                </div>
+                            </div>
+                        </div> -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </mat-tab>
+    <mat-tab label="Yesterday (0)">---</mat-tab>
+    <mat-tab label="Today">---</mat-tab>
+</mat-tab-group>
