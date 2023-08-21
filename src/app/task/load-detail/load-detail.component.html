@@ -201,7 +201,7 @@
           </div>
         </li>
       </ul>
-    </div> 
+    </div>
   </div>
   <div *ngIf="!isMenuListFullScreen" class="mat-bottom-screen row">
     <div class="col-1">
@@ -211,8 +211,8 @@
       <mat-tab-group backgroundColor="accent">
         <mat-tab *ngFor="let m of menuList; let i = index;">
           <ng-template mat-tab-label>
-            <mat-icon>{{ m.icon }}</mat-icon>
-            <span>{{ m.name }}</span>
+            <mat-icon (click)="openMenu(m.name)">{{ m.icon }}</mat-icon>
+            <span (click)="openMenu(m.name)">{{ m.name }}</span>
           </ng-template>
         </mat-tab>
       </mat-tab-group>
@@ -225,9 +225,9 @@
     <div class="col-12">
       <div class="row p-3">
         <div class="col-6 text-center mb-3" *ngFor="let m of menuList; let i = index;">
-          <div class="card p-3 text-center">
+          <div class="card p-3 text-center" (click)="openMenu(m.name)">
             <mat-icon class="x2">{{ m.icon }}</mat-icon>
-          <div>{{ m.name }}</div>
+            <div>{{ m.name }}</div>
           </div>
         </div>
       </div>
