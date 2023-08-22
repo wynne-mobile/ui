@@ -2,19 +2,30 @@
     <div class="card-header">File Attachments</div>
     <div class="card-body">
         <div>
-            <mat-form-field class="mat-form-field" color="accent" style="width: 100%">
-                <mat-label>Quick Search</mat-label>
-                <input matInput placeholder="by file's name, notes">
-            </mat-form-field> 
+            <div class="input-group mb-3">
+                <span class="input-group-text" id="basic-addon1">Search</span>
+                <input type="text" class="form-control" placeholder="File name, notes">
+            </div>
         </div>
-        <table class="table table-bordered">
-            <thead>
-                <th>File</th>
-                <th>Action</th>
-            </thead>
-        </table>
+        <ul class="list-group">
+            <li class="list-group-item">
+                <span class="wynn-icon file-pdf"></span>
+                <div>Side damage report</div>
+                <div class="small" style="margin-top: -5px;">by: Ryan Lam at 08/15/23 10:00 AM</div>
+            </li>
+            <li class="list-group-item">
+                <span class="wynn-icon file-pdf"></span>
+                <div>Customer Aggreement</div>
+                <div class="small" style="margin-top: -5px;">by: Ryan Lam at 08/15/23 9:00 AM</div>
+            </li>
+            <li class="list-group-item">
+                <span class="wynn-icon file-xls"></span>
+                <div>Task List</div>
+                <div class="small" style="margin-top: -5px;">by: Ryan Lam at 08/13/23 4:00 PM</div>
+            </li>
+        </ul>
     </div>
     <div class="card-footer text-center">
-        1 | 2 | 3 | ...
+        <button class="btn btn-primary btn-sm">Add File Attachments</button>
     </div>
 </div>
