@@ -9,7 +9,7 @@ import { MenuLaborComponent } from './menu-labor/menu-labor.component';
 import { MenuStepsComponent } from './menu-steps/menu-steps.component';
 import { MenuSmartFormComponent } from './menu-smart-form/menu-smart-form.component';
 import { MaterialModule } from '../material-module';
-import { MenuFileComponent } from './menu-file/menu-file.component';
+import { MenuFileComponent } from './menu-file/menu-file.component'; 
 
 
 

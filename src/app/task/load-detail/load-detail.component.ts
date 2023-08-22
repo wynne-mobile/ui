@@ -25,10 +25,10 @@ export class LoadDetailComponent implements OnInit {
   load;
   menuList = [
     { name: 'File', icon: 'attach_file' },
+    { name: 'Parts', icon: 'apps' },
     { name: 'Warranty', icon: 'new_releases' },
     { name: 'History', icon: 'multiline_chart' },
     { name: 'Certificates', icon: 'star_border' },
-    { name: 'Parts', icon: 'apps' },
     { name: 'Labor', icon: 'transfer_within_a_station' },
     { name: 'Smartform', icon: 'featured_play_list' },
     { name: 'Steps', icon: 'crop_free' }
