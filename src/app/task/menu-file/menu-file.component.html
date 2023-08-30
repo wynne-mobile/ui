@@ -1,6 +1,7 @@
-<div class="card full-card">
+<!-- List View Screen -->
+<div class="card full-card" *ngIf="listViewMode">
     <div class="card-header">File Attachments</div>
-    <div class="card-body">
+    <div class="card-body" *ngIf="listViewMode">
         <div>
             <div class="input-group mb-3">
                 <span class="input-group-text" id="basic-addon1">Search</span>
@@ -26,6 +27,33 @@
         </ul>
     </div>
     <div class="card-footer text-center">
-        <button class="btn btn-primary btn-sm">Add File Attachments</button>
+        <button mat-button color="accent" (click)="listViewMode=!listViewMode">
+            <mat-icon>camera_alt</mat-icon>
+            Add Attachments
+        </button>
+    </div>
+</div>
+<!-- Upload Screen -->
+<div class="card full-card" *ngIf="!listViewMode">
+    <div class="card-header">
+        <mat-icon style="float: left; margin-top: -2px;" (click)="listViewMode=!listViewMode">keyboard_arrow_left</mat-icon>
+           <div style="display: inline;" (click)="listViewMode=!listViewMode"> Back Attachment List</div>
+    </div>
+    <div class="card-body">
+<div class="row">
+    <div class="col">
+        <mat-form-field class="full-width" color="accent">
+            <mat-label>Select Document Type</mat-label>
+            <mat-select> 
+              <mat-option value="general">General</mat-option> 
+            </mat-select>
+          </mat-form-field>
+    </div>
+</div>
+    </div>
+    <div class="card-footer text-center">
+        <button mat-button color="accent" (click)="listViewMode=!listViewMode"> 
+            Upload
+        </button>
     </div>
 </div>
