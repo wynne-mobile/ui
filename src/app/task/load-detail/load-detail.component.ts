@@ -10,6 +10,7 @@ import { MenuPartComponent } from '../menu-part/menu-part.component';
 import { MenuLaborComponent } from '../menu-labor/menu-labor.component';
 import { MenuSmartFormComponent } from '../menu-smart-form/menu-smart-form.component';
 import { MenuStepsComponent } from '../menu-steps/menu-steps.component';
+import { ModdalNewLoadComponent } from '../moddal-new-load/moddal-new-load.component';
 
 @Component({
   selector: 'app-load-detail',
@@ -24,6 +25,7 @@ export class LoadDetailComponent implements OnInit {
   task;
   load;
   menuList = [
+    { name: 'New Load', icon: 'playlist_add' },
     { name: 'File', icon: 'attach_file' },
     { name: 'Parts', icon: 'apps' },
     { name: 'Warranty', icon: 'new_releases' },
@@ -57,6 +59,9 @@ export class LoadDetailComponent implements OnInit {
     dialogConfig.data = menu;
     let modalDialog = null;
     switch (menu) {
+      case 'New Load':
+        modalDialog = this.matDialog.open(ModdalNewLoadComponent, dialogConfig);
+        break;
       case 'Warranty':
         modalDialog = this.matDialog.open(MenuWarrantyComponent, dialogConfig);
         break;
