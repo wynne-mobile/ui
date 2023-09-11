@@ -21,6 +21,15 @@
           <img src="./assets/item1.jpg" alt="" class="img-fluid img-item">
         </li>
         <li class="list-group-item">
+          <span class="strong">Status</span>
+          <span class="float-end">
+            <select class="custom-select">
+              <option value="{{ load.status }}">{{ load.status }}</option>
+              <option value="Other">Other</option> 
+            </select>
+          </span>
+        </li>
+        <li class="list-group-item">
           <span class="strong">Machine ID</span>
           <span class="float-end">{{ load.mechanicDetail.machineId }}</span>
         </li>
@@ -151,6 +160,21 @@
       <ul class="list-group">
         <li class="list-group-item text-center">
           <img src="./assets/item1.jpg" alt="" class="img-fluid img-item">
+          <div class="mt-2">
+            <span><strong>{{ task.jobsite.company }}</strong></span>
+            <div style="font-size: 80%;margin-top: -6px;">{{
+                task.order.address }}</div> 
+                <span class="badge bg-secondary order-status {{ task.order.status | lowercase }}">{{ task.order.status }}</span>
+              </div>
+        </li>
+        <li class="list-group-item">
+          <span class="strong">Status</span>
+          <span class="float-end">
+            <select class="custom-select">
+              <option value="{{ load.status }}">{{ load.status }}</option>
+              <option value="Other">Other</option> 
+            </select>
+          </span>
         </li>
         <li class="list-group-item">
           <span class="strong">Machine</span>
