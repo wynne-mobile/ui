@@ -36,23 +36,31 @@
 <!-- Upload Screen -->
 <div class="card full-card" *ngIf="!listViewMode">
     <div class="card-header">
-        <mat-icon style="float: left; margin-top: -2px;" (click)="listViewMode=!listViewMode">keyboard_arrow_left</mat-icon>
-           <div style="display: inline;" (click)="listViewMode=!listViewMode"> Back Attachment List</div>
+        <mat-icon style="float: left; margin-top: -2px;"
+            (click)="listViewMode=!listViewMode">keyboard_arrow_left</mat-icon>
+        <div style="display: inline;" (click)="listViewMode=!listViewMode"> Back Attachment List</div>
     </div>
     <div class="card-body">
-<div class="row">
-    <div class="col">
-        <mat-form-field class="full-width" color="accent">
-            <mat-label>Select Document Type</mat-label>
-            <mat-select> 
-              <mat-option value="general">General</mat-option> 
-            </mat-select>
-          </mat-form-field>
-    </div>
-</div>
+        <div class="row">
+            <div class="col">
+                <div class="form-group">
+                    <label for="exampleFormControlSelect1">Select Document Type</label>
+                    <select class="form-select" id="exampleFormControlSelect1">
+                        <option>General</option>
+                    </select>
+                    <div class="form-check form-switch mt-2">
+                        <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault">
+                        <label class="form-check-label" for="flexSwitchCheckDefault">Display on Equipment</label>
+                    </div>
+                </div>
+                <div class="text-center mt-3">
+                    <button class="btn btn-primary">Choose File</button>
+                </div>
+            </div>
+        </div>
     </div>
     <div class="card-footer text-center">
-        <button mat-button color="accent" (click)="listViewMode=!listViewMode"> 
+        <button mat-button color="accent" (click)="listViewMode=!listViewMode">
             Upload
         </button>
     </div>

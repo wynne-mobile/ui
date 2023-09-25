@@ -26,7 +26,7 @@ export class LoadDetailComponent implements OnInit {
   load;
   menuList = [
     { name: 'New Load', icon: 'playlist_add' },
-    { name: 'File', icon: 'attach_file' },
+    { name: 'Attachments', icon: 'attach_file' },
     { name: 'Parts', icon: 'apps' },
     { name: 'Warranty', icon: 'new_releases' },
     { name: 'History', icon: 'multiline_chart' },
@@ -68,7 +68,7 @@ export class LoadDetailComponent implements OnInit {
       case 'History':
         modalDialog = this.matDialog.open(MenuHistoryComponent, dialogConfig);
         break;
-      case 'File':
+      case 'Attachments':
         modalDialog = this.matDialog.open(MenuFileComponent, dialogConfig);
         break;
       case 'Certificates':
