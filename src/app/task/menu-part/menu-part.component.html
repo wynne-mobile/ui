@@ -1,6 +1,6 @@
 <div class="card full-card">
     <div class="card-header">Parts</div>
-    <div class="card-body">
+    <div class="card-body" *ngIf="onDisplay">
         <div>
             <div class="input-group mb-3">
                 <span class="input-group-text" id="basic-addon1">Search</span>
@@ -9,72 +9,132 @@
         </div>
         <ul class="list-group ">
             <li class="list-group-item bg-light">
-                <span class="wynn-icon engine me-2"></span>
+                <h1 class="float-left">1</h1>
                 <div><strong>Sissor Lift Handle</strong></div>
-                <div class="small" style="margin-top: -5px;">Truck: ABC | Part #: 27663REB</div>
-                
+                <div class="small" style="margin-top: -5px;">Truck: ABC | Part #: 27663REB</div> 
                 <div class="row mt-2">
                     <div class="col text-end">
-                       Stock Class
+                        Stock Class
                     </div>
                     <div class="col">
-                       ---
-                    </div>
-                </div>  <div class="row">
-                    <div class="col text-end">
-                       Unit of Measure
-                    </div>
-                    <div class="col">
-                       ---
-                    </div>
-                </div>  <div class="row">
-                    <div class="col text-end">
-                       Quantity
-                    </div>
-                    <div class="col">
-                       ---
-                    </div>
-                </div>  <div class="row">
-                    <div class="col text-end">
-                       Cost
-                    </div>
-                    <div class="col">
-                       ---
-                    </div>
-                </div>  <div class="row">
-                    <div class="col text-end">
-                       Total
-                    </div>
-                    <div class="col">
-                       ---
-                    </div>
-                </div>  <div class="row">
-                    <div class="col text-end">
-                       Back Order
-                    </div>
-                    <div class="col">
-                       ---
+                        ---
                     </div>
                 </div>
-            </li> 
+                <div class="row">
+                    <div class="col text-end">
+                        Unit of Measure
+                    </div>
+                    <div class="col">
+                        ---
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col text-end">
+                        Quantity
+                    </div>
+                    <div class="col">
+                        ---
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col text-end">
+                        Cost
+                    </div>
+                    <div class="col">
+                        ---
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col text-end">
+                        Total
+                    </div>
+                    <div class="col">
+                        ---
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col text-end">
+                        Back Order
+                    </div>
+                    <div class="col">
+                        ---
+                    </div>
+                </div>
+            </li>
             <li class="list-group-item">
-                <span class="wynn-icon engine me-2"></span>
+                <h1 class="float-left">2</h1>
                 <div>Sissor Lift Handle</div>
                 <div class="small" style="margin-top: -5px;">Truck: ABC | Part #: 27663REB</div>
-            </li> 
+            </li>
             <li class="list-group-item">
-                <span class="wynn-icon engine me-2"></span>
+                <h1 class="float-left">1</h1>
                 <div>Sissor Lift Handle</div>
                 <div class="small" style="margin-top: -5px;">Truck: ABC | Part #: 27663REB</div>
-            </li> 
+            </li>
             <li class="list-group-item">
-                <span class="wynn-icon engine me-2"></span>
+                <h1 class="float-left">1</h1>
                 <div>Sissor Lift Handle</div>
                 <div class="small" style="margin-top: -5px;">Truck: ABC | Part #: 27663REB</div>
-            </li> 
-        </ul> 
+            </li>
+        </ul>
+    </div>
+    <div class="card-body" *ngIf="!onDisplay">
+        <div class="row">
+            <div class="col">
+                <div class="form-group">
+                    <label>Search Part</label>
+                    <input type="text" class="form-control" placeholder="name, number, stock class">
+                </div>
+            </div>
+        </div>
+        <div class="row mt-2">
+            <div class="col">
+                <div class="form-group">
+                    <label>Part Name</label>
+                    <input type="text" class="form-control">
+                </div>
+            </div>
+        </div>
+        <div class="row mt-2">
+            <div class="col">
+                <div class="form-group">
+                    <label>Type</label>
+                    <select name="" id="" class="form-control" disabled></select>
+                </div>
+            </div>
+            <div class="col">
+                <div class="form-group">
+                    <label>Quantity</label>
+                    <input type="number" class="form-control">
+                </div>
+            </div>
+        </div>
+        <div class="row mt-2">
+            <div class="col">
+                <div class="form-group">
+                    <label>Unit</label>
+                    <input type="text" class="form-control">
+                </div>
+            </div>
+            <div class="col">
+                <div class="form-group">
+                    <label>Cost</label>
+                    <input type="text" class="form-control">
+                </div>
+            </div>
+        </div>
+        <div class="row mt-2">
+            <div class="col">
+                <div class="form-group">
+                    <label>Description</label>
+                    <input type="text" class="form-control">
+                </div>
+            </div>
+        </div> 
     </div>
     <div class="card-footer text-center">
-        <button class="btn btn-primary btn-sm">Add Part</button>
+        <button class="btn btn-primary btn-sm" *ngIf="onDisplay" (click)="switchDisplay()">Add Part</button>
+        <button class="btn btn-sm" *ngIf="!onDisplay" (click)="switchDisplay()">Back to List</button>
+        <button class="btn btn-primary btn-sm ms-2" *ngIf="!onDisplay" (click)="switchDisplay()">Add Entry</button>
     </div>
 </div>
