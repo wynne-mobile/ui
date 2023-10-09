@@ -26,11 +26,9 @@
             </li>
         </ul>
     </div>
-    <div class="card-footer text-center">
-        <button mat-button color="accent" (click)="listViewMode=!listViewMode">
-            <mat-icon>camera_alt</mat-icon>
-            Add Attachments
-        </button>
+    <div class="card-footer text-center"> 
+        <button class="btn btn-sm">Cancel</button>
+        <button class="btn btn-sm btn-primary ms-2" (click)="listViewMode=!listViewMode">Add Attachments</button>
     </div>
 </div>
 <!-- Upload Screen -->
@@ -60,8 +58,7 @@
         </div>
     </div>
     <div class="card-footer text-center">
-        <button mat-button color="accent" (click)="listViewMode=!listViewMode">
-            Upload
-        </button>
+        <button class="btn btn-sm">Cancel</button>
+        <button class="btn btn-sm btn-primary ms-2" (click)="listViewMode=!listViewMode">Upload</button> 
     </div>
 </div>
