@@ -48,6 +48,8 @@ export class LoadDetailComponent implements OnInit {
       this.load = this.task.loads.filter(f => f.id == this.loadId)[0];
       console.log('this.load', this.load);
     });
+    // for quick develop
+    this.openMenu('Steps');
   }
 
   openMenu = function (menu) {

@@ -1,0 +1,40 @@
+@import '../../../assets/styles.sass'  
+.table-steps
+    tr
+        &:last-child 
+            td
+                border-top: 0px !important
+        td
+            width: 98%
+            vertical-align: top
+            border-bottom: 1px solid #dadada
+            &:first-child 
+                padding: 3px
+                width: 1% !important
+                white-space: nowrap 
+            &:last-child 
+                padding: 3px
+                width: 1% !important
+                white-space: nowrap
+            mat-icon
+                margin-top: -5px
+                margin-left: -3px
+                font-size: 18px !important
+                &.pass
+                    color: green
+                &.fail
+                    color: red
+        &.pass
+            td
+                border: 1px solid #a9ffb6
+                background-color: #a9ffb6
+                mat-icon
+                    color: green
+        &.fail
+            td
+                border: 1px solid #ffdbdb
+                background-color: #ffdbdb
+                mat-icon
+                    color: red
+        .strong
+            font-weight: bold

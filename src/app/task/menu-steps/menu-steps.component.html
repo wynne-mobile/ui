@@ -1,1 +1,67 @@
-<p>menu-steps works!</p>
+<div class="card full-card">
+    <div class="card-header">Steps
+        <div class="float-end"><mat-icon>printer</mat-icon></div>
+    </div>
+    <div class="card-body">
+        <div class="row">
+            <div class="col">
+                <div class="form-group">
+                    <label>Search</label>
+                    <input name="" id="" class="form-control" placeholder="Quick Search by Number, Name" />
+                </div>
+            </div>
+        </div>
+        <ul class="nav nav-tabs mt-2" id="myTab" role="tablist">
+            <li class="nav-item" role="presentation">
+                <button class="nav-link active" id="home-tab" data-bs-toggle="tab" data-bs-target="#home" type="button"
+                    role="tab" aria-controls="home" aria-selected="true">All</button>
+            </li>
+            <li class="nav-item" role="presentation">
+                <button class="nav-link" id="profile-tab" data-bs-toggle="tab" data-bs-target="#profile" type="button"
+                    role="tab" aria-controls="profile" aria-selected="false">To Do Steps</button>
+            </li>
+            <li class="nav-item" role="presentation">
+                <button class="nav-link" id="contact-tab" data-bs-toggle="tab" data-bs-target="#contact" type="button"
+                    role="tab" aria-controls="contact" aria-selected="false">Done Steps</button>
+            </li>
+        </ul>
+        <div class="tab-content" id="myTabContent">
+            <div class="tab-pane active" id="home" role="tabpanel" aria-labelledby="home-tab">
+                <table class="table table-steps mt-2">
+                    <tr *ngFor="let s of steps; let i = index;"
+                        [ngClass]="{'pass': s.Status === 1, 'fail' : s.Status === 2 }">
+                        <td (click)="openStepDetail(s)">
+                            <mat-icon *ngIf="s.Status==0" class="pass">more_horiz</mat-icon>
+                            <mat-icon *ngIf="s.Status==1" class="pass">highlight_off</mat-icon>
+                            <mat-icon *ngIf="s.Status==2" class="pass">done</mat-icon>
+                        </td>
+                        <td>
+                            <div (click)="openStepDetail(s)" class="pt-1" [ngClass]="{'strong': s.IsOpen}">{{ s.Service }}</div>
+                            <div class="row" *ngIf="s.IsOpen">
+                                <div class="col">
+                                    <input type="datetime-local" class="form-control form-control-sm">
+                                </div>
+                                <div class="col mt-2">
+                                    <div class="btn-group btn-group-sm btn-group d-flex" role="group" aria-label="Basic example">
+                                        <button type="button" class="btn" [ngClass]="{'btn-success': s.Status === 1, 'btn-outline-success' : s.Status !== 1 }" (click)="changeStatus(s, 1)">Pass</button>
+                                        <button type="button" class="btn" [ngClass]="{'btn-danger': s.Status === 2, 'btn-outline-danger' : s.Status !== 2 }" (click)="changeStatus(s, 2)">Fail</button>
+                                    </div>
+                                </div>
+                            </div> 
+                        </td>
+                        <td (click)="openStepDetail(s)" *ngIf="s.IsOpen"><mat-icon>expand_more</mat-icon></td>
+                        <td (click)="openStepDetail(s)" *ngIf="!s.IsOpen"><mat-icon>chevron_right</mat-icon></td>
+                    </tr>
+                </table>
+            </div>
+            <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">..d.</div>
+            <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">.e..</div>
+        </div>
+    </div>
+    <div class="card-footer">
+        <div class="btn-group btn-group-sm btn-group d-flex" role="group" aria-label="Basic example">
+            <button type="button" class="btn">Close</button>
+            <button type="button" class="btn btn-primary">Submit</button>
+        </div>
+    </div>
+</div>
