@@ -49,7 +49,7 @@ export class LoadDetailComponent implements OnInit {
       console.log('this.load', this.load);
     });
     // for quick develop
-    this.openMenu('Labor');
+    // this.openMenu('Labor');
   }
 
   openMenu = function (menu) {
