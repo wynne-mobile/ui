@@ -11,12 +11,17 @@
             </thead>
             <tbody>
                 <tr *ngFor="let l of labors; let i = index;">
-                    <td>{{ l.LogDateTime | date:"MM/dd/yyyy 'at' hh:mma"  }}</td>
-                    <td class="text-end">{{ l.LaborHour  }}</td>
+                    <td>{{ l.LogDateTime | date:"MM/dd/yyyy 'at' hh:mma" }}
+                        <div class="small">
+                            <span><mat-icon>how_to_reg</mat-icon>{{ l.MechanicName }}</span>
+                            <span> - {{ l.WorkOrderSegment }}</span>
+                        </div>
+                    </td>
+                    <td class="text-end text-hour">{{ l.LaborHour }}</td>
                 </tr>
             </tbody>
             <tfoot>
-                <tr> 
+                <tr>
                     <td class="text-end">Total</td>
                     <td class="text-end">--</td>
                 </tr>
@@ -29,7 +34,7 @@
             <button type="button" class="btn btn-primary" (click)="onDisplayMode=!onDisplayMode">Add New Labor</button>
         </div>
     </div>
-    <!-- ON ENTRY MODE --> 
+    <!-- ON ENTRY MODE -->
     <div *ngIf="!onDisplayMode" class="card-header">Labor Entry</div>
     <div *ngIf="!onDisplayMode" class="card-body">
         <div class="row">
@@ -38,10 +43,10 @@
                     <label>Work Order - Segment</label>
                     <select class="form-select">
                         <option>--</option>
-                    </select> 
+                    </select>
                 </div>
             </div>
-        </div> 
+        </div>
         <div class="row mt-2">
             <div class="col">
                 <div class="form-group">
@@ -49,7 +54,7 @@
                     <input class="form-control" />
                 </div>
             </div>
-        </div> 
+        </div>
         <div class="row mt-2">
             <div class="col">
                 <div class="form-group">
@@ -57,17 +62,17 @@
                     <input type="datetime-local" class="form-control" />
                 </div>
             </div>
-        </div> 
+        </div>
         <div class="row mt-2">
             <div class="col">
                 <div class="form-group">
                     <label>Labor Code</label>
                     <select class="form-select">
                         <option>General Maintenance</option>
-                    </select> 
+                    </select>
                 </div>
             </div>
-        </div> 
+        </div>
         <div class="row mt-2">
             <div class="col">
                 <div class="form-group">
@@ -75,7 +80,7 @@
                     <input type="number" class="form-control" />
                 </div>
             </div>
-        </div>  
+        </div>
     </div>
     <div *ngIf="!onDisplayMode" class="card-footer">
         <div class="btn-group btn-group-sm btn-group d-flex" role="group" aria-label="Basic example">
