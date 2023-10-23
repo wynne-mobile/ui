@@ -1,1 +1,86 @@
-<p>menu-labor works!</p>
+<div class="card full-card">
+    <!-- ON DISPLAY MODE -->
+    <div *ngIf="onDisplayMode" class="card-header">Labor</div>
+    <div *ngIf="onDisplayMode" class="card-body">
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th>Date Time</th>
+                    <th class="text-end">Hour(s)</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let l of labors; let i = index;">
+                    <td>{{ l.LogDateTime | date:"MM/dd/yyyy 'at' hh:mma"  }}</td>
+                    <td class="text-end">{{ l.LaborHour  }}</td>
+                </tr>
+            </tbody>
+            <tfoot>
+                <tr> 
+                    <td class="text-end">Total</td>
+                    <td class="text-end">--</td>
+                </tr>
+            </tfoot>
+        </table>
+    </div>
+    <div *ngIf="onDisplayMode" class="card-footer">
+        <div class="btn-group btn-group-sm btn-group d-flex" role="group" aria-label="Basic example">
+            <button type="button" class="btn">Close</button>
+            <button type="button" class="btn btn-primary" (click)="onDisplayMode=!onDisplayMode">Add New Labor</button>
+        </div>
+    </div>
+    <!-- ON ENTRY MODE --> 
+    <div *ngIf="!onDisplayMode" class="card-header">Labor Entry</div>
+    <div *ngIf="!onDisplayMode" class="card-body">
+        <div class="row">
+            <div class="col">
+                <div class="form-group">
+                    <label>Work Order - Segment</label>
+                    <select class="form-select">
+                        <option>--</option>
+                    </select> 
+                </div>
+            </div>
+        </div> 
+        <div class="row mt-2">
+            <div class="col">
+                <div class="form-group">
+                    <label>Mechanic's Name</label>
+                    <input class="form-control" />
+                </div>
+            </div>
+        </div> 
+        <div class="row mt-2">
+            <div class="col">
+                <div class="form-group">
+                    <label>Date of Internetion</label>
+                    <input type="datetime-local" class="form-control" />
+                </div>
+            </div>
+        </div> 
+        <div class="row mt-2">
+            <div class="col">
+                <div class="form-group">
+                    <label>Labor Code</label>
+                    <select class="form-select">
+                        <option>General Maintenance</option>
+                    </select> 
+                </div>
+            </div>
+        </div> 
+        <div class="row mt-2">
+            <div class="col">
+                <div class="form-group">
+                    <label>Labor Hour</label>
+                    <input type="number" class="form-control" />
+                </div>
+            </div>
+        </div>  
+    </div>
+    <div *ngIf="!onDisplayMode" class="card-footer">
+        <div class="btn-group btn-group-sm btn-group d-flex" role="group" aria-label="Basic example">
+            <button type="button" class="btn" (click)="onDisplayMode=true">Back to List</button>
+            <button type="button" class="btn btn-primary" (click)="onDisplayMode=!onDisplayMode">Add Labor</button>
+        </div>
+    </div>
+</div>
