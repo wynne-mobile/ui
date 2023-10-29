@@ -11,6 +11,7 @@ import { MenuLaborComponent } from '../menu-labor/menu-labor.component';
 import { MenuSmartFormComponent } from '../menu-smart-form/menu-smart-form.component';
 import { MenuStepsComponent } from '../menu-steps/menu-steps.component';
 import { ModdalNewLoadComponent } from '../moddal-new-load/moddal-new-load.component';
+import { MenuAssignMechanicComponent } from '../menu-assign-mechanic/menu-assign-mechanic.component';
 
 @Component({
   selector: 'app-load-detail',
@@ -32,6 +33,7 @@ export class LoadDetailComponent implements OnInit {
     { name: 'History', icon: 'multiline_chart' },
     { name: 'Certificates', icon: 'star_border' },
     { name: 'Labor', icon: 'transfer_within_a_station' },
+    { name: 'Assign Mechanic', icon: 'transfer_within_a_station' },
     { name: 'Smartform', icon: 'featured_play_list' },
     { name: 'Steps', icon: 'crop_free' }
   ];
@@ -49,7 +51,7 @@ export class LoadDetailComponent implements OnInit {
       console.log('this.load', this.load);
     });
     // for quick develop
-    // this.openMenu('Labor');
+      this.openMenu('Assign Mechanic');
   }
 
   openMenu = function (menu) {
@@ -81,6 +83,9 @@ export class LoadDetailComponent implements OnInit {
         break;
       case 'Labor':
         modalDialog = this.matDialog.open(MenuLaborComponent, dialogConfig);
+        break;
+      case 'Assign Mechanic':
+        modalDialog = this.matDialog.open(MenuAssignMechanicComponent, dialogConfig);
         break;
       case 'SmartForms':
         modalDialog = this.matDialog.open(MenuSmartFormComponent, dialogConfig);

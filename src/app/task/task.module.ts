@@ -10,7 +10,8 @@ import { MenuStepsComponent } from './menu-steps/menu-steps.component';
 import { MenuSmartFormComponent } from './menu-smart-form/menu-smart-form.component';
 import { MaterialModule } from '../material-module';
 import { MenuFileComponent } from './menu-file/menu-file.component'; 
-import { ModdalNewLoadComponent } from './moddal-new-load/moddal-new-load.component'; 
+import { ModdalNewLoadComponent } from './moddal-new-load/moddal-new-load.component';
+import { MenuAssignMechanicComponent } from './menu-assign-mechanic/menu-assign-mechanic.component'; 
 
 
 
@@ -23,7 +24,7 @@ import { ModdalNewLoadComponent } from './moddal-new-load/moddal-new-load.compon
     MenuLaborComponent,
     MenuStepsComponent, 
     MenuSmartFormComponent, 
-    ModdalNewLoadComponent
+    ModdalNewLoadComponent, MenuAssignMechanicComponent
   ],
   imports: [
     CommonModule,
