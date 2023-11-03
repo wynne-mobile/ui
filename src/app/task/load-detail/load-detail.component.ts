@@ -51,7 +51,7 @@ export class LoadDetailComponent implements OnInit {
       console.log('this.load', this.load);
     });
     // for quick develop
-      this.openMenu('Assign Mechanic');
+    this.openMenu('Warranty');
   }
 
   openMenu = function (menu) {
