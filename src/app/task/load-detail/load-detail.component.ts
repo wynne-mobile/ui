@@ -51,7 +51,7 @@ export class LoadDetailComponent implements OnInit {
       console.log('this.load', this.load);
     });
     // for quick develop
-    this.openMenu('History');
+    // this.openMenu('History');
   }
 
   openMenu = function (menu) {
