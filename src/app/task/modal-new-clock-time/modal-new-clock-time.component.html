@@ -1,0 +1,46 @@
+<div class="card full-card">
+    <div class="card-header"><strong>Labor Entry #{{ order.number }}</strong></div>
+    <div class="card-body">
+        <div class="text-center">
+            <h2>{{ order.clockTime }}</h2>
+        </div>
+        <div class="row">
+            <div class="col">
+                <button type="button" class="btn btn-light">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                        class="bi bi-clock" viewBox="0 0 16 16">
+                        <path d="M8 3.5a.5.5 0 0 0-1 0V9a.5.5 0 0 0 .252.434l3.5 2a.5.5 0 0 0 .496-.868L8 8.71z" />
+                        <path d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16m7-8A7 7 0 1 1 1 8a7 7 0 0 1 14 0" />
+                    </svg>
+                    Start Clock</button>
+            </div>
+            <div class="col">
+                <button type="button" class="btn btn-light">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                        class="bi bi-pause-circle" viewBox="0 0 16 16">
+                        <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14m0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16" />
+                        <path
+                            d="M5 6.25a1.25 1.25 0 1 1 2.5 0v3.5a1.25 1.25 0 1 1-2.5 0zm3.5 0a1.25 1.25 0 1 1 2.5 0v3.5a1.25 1.25 0 1 1-2.5 0z" />
+                    </svg>
+                    Stop Clock</button>
+            </div>
+        </div>
+        <div class="mt-3">
+            <label for="" class="form-label">Manual Enter Labor Hour</label> 
+            <select class="form-select">
+                <option selected>Labor Code</option>
+            </select>
+            <div class="row mt-2">
+                <div class="col">
+                    <input type="number" class="form-control" placeholder="0">
+                </div>
+                <div class="col">
+                    <button type="button" class="btn btn-success form-control" (click)="closeModal()">Submit</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="card-footer text-center">
+        <button type="button" class="btn btn-light me-2" (click)="closeModal()">Close</button>
+    </div>
+</div>

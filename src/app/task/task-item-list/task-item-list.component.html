@@ -1,11 +1,33 @@
 <div class="card-header">
-    <div class="row">
-        <div class="col ps-4" (click)="onloadSelected(task.id)">
-            <span><strong>{{ task.jobsite.company }}</strong></span>
-            <span class="badge bg-secondary float-end order-status {{ task.order.status | lowercase }}">{{ task.order.status }}</span>
-            <div style="font-size: 80%;margin-top: -6px;">{{
-                task.order.address }}</div>
-        </div>
+    <div class="row p-0">
+        <table class="table table-borderless mb-0">
+            <tbody>
+                <tr>
+                    <td (click)="onloadSelected(task.id)">
+                        <span>#{{ task.order.number }} <strong>{{ task.jobsite.company }}</strong></span>
+                        <div style="font-size: 80%;">{{ task.order.address }}</div>
+                    </td>
+                    <td>
+                        <span class="block badge bg-secondary order-status {{ task.order.status | lowercase }}">{{
+                            task.order.status }}</span>
+                        <div (click)="openClockTime(task.order)" class="block float-end mt-1 clock-time {{ task.order.status | lowercase }}">
+                            <span class="me-1">{{ task.order.clockTime }}</span>
+                            <svg *ngIf="task.order.status === 'OnRoute'"  xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pause-circle" viewBox="0 0 16 16">
+                                <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14m0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16"/>
+                                <path d="M5 6.25a1.25 1.25 0 1 1 2.5 0v3.5a1.25 1.25 0 1 1-2.5 0zm3.5 0a1.25 1.25 0 1 1 2.5 0v3.5a1.25 1.25 0 1 1-2.5 0z"/>
+                              </svg>
+                            <svg *ngIf="task.order.status === 'OnSite'" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-clock" viewBox="0 0 16 16">
+                                <path d="M8 3.5a.5.5 0 0 0-1 0V9a.5.5 0 0 0 .252.434l3.5 2a.5.5 0 0 0 .496-.868L8 8.71z"/>
+                                <path d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16m7-8A7 7 0 1 1 1 8a7 7 0 0 1 14 0"/>
+                              </svg>
+                              <svg *ngIf="task.order.status === 'Completed'" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-check" viewBox="0 0 16 16">
+                                <path d="M10.97 4.97a.75.75 0 0 1 1.07 1.05l-3.99 4.99a.75.75 0 0 1-1.08.02L4.324 8.384a.75.75 0 1 1 1.06-1.06l2.094 2.093 3.473-4.425z"/>
+                              </svg>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
     </div>
 </div>
 <div class="card-body" *ngIf="task.isOpen">
@@ -27,16 +49,22 @@
             <ol class="list-group">
                 <li class="list-group-item d-flex justify-content-between align-items-start bg-light"
                     *ngFor="let load of task.loads; let j = index;">
-                    <div class="ms-2 me-auto" [routerLink]="['/task/load-detail']" [queryParams]="{taskId: task.id, loadId: load.id}">
+                    <div class="ms-2 me-auto" [routerLink]="['/task/load-detail']"
+                        [queryParams]="{taskId: task.id, loadId: load.id}">
                         <div class="row">
                             <div class="col-2 pt-2">
-                                <div *ngIf="load.mode === 'Driver'" class="wynn-icon {{ load.driverDetail.status }}-truck"></div>
-                                <div *ngIf="load.mode === 'Mechanic'" class="wynn-icon mechanic"></div> 
-                                <div class="text-center"><span class="badge bg-secondary load-status {{ load.status | lowercase }}">{{ task.order.status }}</span></div>
-                 </div>
+                                <div *ngIf="load.mode === 'Driver'"
+                                    class="wynn-icon {{ load.driverDetail.status }}-truck"></div>
+                                <div *ngIf="load.mode === 'Mechanic'" class="wynn-icon mechanic"></div>
+                                <div class="text-center"><span
+                                        class="badge bg-secondary load-status {{ load.status | lowercase }}">{{
+                                        task.order.status }}</span></div>
+                            </div>
                             <div class="col ps-4">
-                                <span *ngIf="load.mode === 'Driver'"><strong><u>#{{ load.number }}</u></strong> {{ load.driverDetail.status | uppercase }}</span>
-                                <span *ngIf="load.mode === 'Mechanic'"><strong><u>#{{ load.number }}</u></strong> {{ load.mechanicDetail.machine }}</span> 
+                                <span *ngIf="load.mode === 'Driver'"><strong><u>#{{ load.number }}</u></strong> {{
+                                    load.driverDetail.status | uppercase }}</span>
+                                <span *ngIf="load.mode === 'Mechanic'"><strong><u>#{{ load.number }}</u></strong> {{
+                                    load.mechanicDetail.machine }}</span>
                                 <div style="font-size: 80%;margin-top: -6px;">
                                     <span class="pe-2"><strong>Order#:</strong> {{
                                         load.orderNumber
@@ -48,17 +76,18 @@
                                 </div>
                                 <div style="font-size: 80%;margin-top: -6px;">
                                     <!-- Load Detail -->
-                                    <div *ngIf="load.mode === 'Driver'"> 
+                                    <div *ngIf="load.mode === 'Driver'">
                                         <span class="pe-2"><strong>MachineID:</strong>
                                             {{
                                             load.driverDetail.machineId }}</span>
-                                    </div> 
+                                    </div>
                                     <!-- Load Detail -->
                                     <div *ngIf="load.mode === 'Mechanic'">
-                                        <span class="pe-2 text-danger"> 
-                                            {{ load.mechanicDetail.issue }} (est. {{ load.mechanicDetail.estimateHours }} hrs)</span>
+                                        <span class="pe-2 text-danger">
+                                            {{ load.mechanicDetail.issue }} (est. {{ load.mechanicDetail.estimateHours
+                                            }} hrs)</span>
                                     </div>
-                                    
+
                                 </div>
                             </div>
                         </div>
@@ -68,11 +97,11 @@
                     <button mat-button color="accent" class=" col-6" (click)="openNewLoad(task)">
                         <mat-icon>add_circle_outline</mat-icon>
                         Add New Load
-                      </button>  
-                      <button mat-button color="accent" class=" col-6" (click)="openEnRoute(task)">
-                          <mat-icon>playlist_add_check</mat-icon>
-                          En Route
-                        </button>  
+                    </button>
+                    <button mat-button color="accent" class=" col-6" (click)="openEnRoute(task)">
+                        <mat-icon>playlist_add_check</mat-icon>
+                        En Route
+                    </button>
                 </li>
             </ol>
         </div>
