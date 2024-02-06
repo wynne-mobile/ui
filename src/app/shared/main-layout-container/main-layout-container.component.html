@@ -1,6 +1,7 @@
 <mat-toolbar color="accent" style="margin-bottom: 2rem;">
-    <button routerLink="/" mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
-        <mat-icon>account_circle</mat-icon>
+    <button (click)="controlSlideMenu()" mat-icon-button class="example-icon"
+        aria-label="Example icon-button with menu icon">
+        <mat-icon>menu</mat-icon>
     </button>
     <div class="driver-name"><span>John Doe</span>
         <p>TRK 0001</p>
@@ -15,12 +16,60 @@
             <button mat-menu-item>
                 <mat-icon>chevron_right</mat-icon>
                 <span>On Duty</span>
-            </button> 
+            </button>
             <button mat-menu-item>
                 <mat-icon>chevron_right</mat-icon>
                 <span>Other</span>
-            </button> 
+            </button>
         </mat-menu>
     </div>
 </mat-toolbar>
+<div *ngIf="isExpanded" (click)="controlSlideMenu()" class="menu-slide">
+</div>
+<div *ngIf="isExpanded" class="menu-slide-container">
+    <mat-toolbar color="accent" style="margin-bottom: 2rem;">
+        <button (click)="controlSlideMenu()" mat-icon-button class="example-icon"
+            aria-label="Example icon-button with menu icon">
+            <mat-icon>close</mat-icon>
+        </button>
+        <div class="driver-name"><span>John Doe</span>
+            <p>TRK 0001</p>
+        </div>
+        <span class="example-spacer"></span>
+    </mat-toolbar>
+    <mat-list>
+        <mat-list-item routerLink="/profile">
+            <mat-icon matListItemIcon>person</mat-icon>
+            <div matListItemTitle>Profile</div> 
+        </mat-list-item>
+        <mat-list-item routerLink="/task">
+            <mat-icon matListItemIcon>list_alt</mat-icon>
+            <div matListItemTitle>Tasks</div> 
+        </mat-list-item>
+        <mat-list-item>
+            <mat-icon matListItemIcon>devices_other</mat-icon>
+            <div matListItemTitle>Devices</div> 
+        </mat-list-item>
+        <mat-list-item>
+            <mat-icon matListItemIcon>dynamic_form</mat-icon>
+            <div matListItemTitle>Smart Form</div> 
+        </mat-list-item> 
+        <mat-list-item routerLink="/clock-time">
+            <mat-icon matListItemIcon>access_time</mat-icon>
+            <div matListItemTitle>Clock Time</div> 
+        </mat-list-item> 
+        <mat-list-item routerLink="/settings">
+            <mat-icon matListItemIcon>settings</mat-icon>
+            <div matListItemTitle>Settings</div> 
+        </mat-list-item> 
+        <mat-list-item>
+            <mat-icon matListItemIcon>cloud_sync</mat-icon>
+            <div matListItemTitle>Sync Data</div> 
+        </mat-list-item>
+        <mat-list-item routerLink="/">
+            <mat-icon matListItemIcon>logout</mat-icon>
+            <div matListItemTitle>Log Out</div> 
+        </mat-list-item>
+    </mat-list>
+</div>
 <router-outlet></router-outlet>

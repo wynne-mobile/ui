@@ -18,6 +18,8 @@ import { TaskItemListComponent } from './task/task-item-list/task-item-list.comp
 import { LoadDetailComponent } from './task/load-detail/load-detail.component';
 import { ModalEnRouteComponent } from './task/modal-en-route/modal-en-route.component'; 
 import { FormsModule } from '@angular/forms';
+import { ClockTimeComponent } from './clock-time/clock-time.component';
+import { ProfileComponent } from './profile/profile.component';
 
 @NgModule({
   declarations: [
@@ -33,7 +35,7 @@ import { FormsModule } from '@angular/forms';
     LoadDetailComponent,
     SubLayoutContainerComponent,
     TaskItemListComponent, 
-    ModalEnRouteComponent
+    ModalEnRouteComponent, ClockTimeComponent, ProfileComponent
   ],
   imports: [
     FormsModule,

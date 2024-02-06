@@ -28,6 +28,16 @@ const routes: Routes = [
     loadChildren: () => import('../app/task/task.module').then(m => m.TaskModule)
   },
   {
+    path: 'clock-time',
+    component: SubLayoutContainerComponent,
+    loadChildren: () => import('../app/clock-time/clock-time.module').then(m => m.ClockTimeModule)
+  },
+  {
+    path: 'profile',
+    component: SubLayoutContainerComponent,
+    loadChildren: () => import('../app/profile/profile.module').then(m => m.ProfileModule)
+  },
+  {
     path: 'settings',
     component: SubLayoutContainerComponent,
     loadChildren: () => import('../app/settings/settings.module').then(m => m.SettingsModule)

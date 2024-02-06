@@ -6,5 +6,8 @@ import { Component } from '@angular/core';
   styleUrls: ['./main-layout-container.component.sass']
 })
 export class MainLayoutContainerComponent {
-
+  isExpanded = false;
+  controlSlideMenu = function(){
+    this.isExpanded = ! this.isExpanded;
+  };
 }
