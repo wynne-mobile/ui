@@ -1,6 +1,83 @@
 <mat-toolbar color="accent">
-    <button routerLink="/dashboard" mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
+  <button routerLink="/dashboard" mat-icon-button class="example-icon"
+      aria-label="Example icon-button with menu icon">
       <mat-icon>keyboard_arrow_left</mat-icon>
-    </button>
-    <div><span class="ms-2">Profile</span></div>
-  </mat-toolbar>
+  </button>
+  <div>
+      <span>Profile</span>
+  </div>
+</mat-toolbar>
+<div class="container">
+  <div class="row mt-2">
+      <!-- Apprearance -->
+      <div class="row">
+        <div class="col-12">
+            <button mat-button color="accent">
+                <mat-icon>supervised_user_circle</mat-icon>
+                Information
+            </button>
+        </div> 
+          <div class="col-12 p-3 text-center">
+            <img src="../../assets/images/driver-avatar.jpeg" alt="" style="width: 40%;" class="rounded">
+          </div> 
+        <div class="col-12 pt-2">
+            <ul class="list-group"> 
+              <li class="list-group-item">
+                  <div class="row"> 
+                      <div class="col ms-2 p-1">
+                          <span>First Name</span>
+                      </div>
+                      <div class="col-4 pt-1 text-end">
+                          <span>Keith</span>
+                      </div>
+                  </div>
+              </li>
+              <li class="list-group-item">
+                  <div class="row"> 
+                      <div class="col ms-2 p-1">
+                          <span>Last Name</span>
+                      </div>
+                      <div class="col-4 pt-1 text-end">
+                          <span>Nguyen</span>
+                      </div>
+                  </div>
+              </li>
+              <li class="list-group-item">
+                  <div class="row"> 
+                      <div class="col ms-2 p-1">
+                          <span>Driver Lisence</span>
+                      </div>
+                      <div class="col-4 pt-1 text-end">
+                          <span>F250TLSX</span>
+                      </div>
+                  </div>
+              </li> 
+            </ul>
+        </div>
+        <div class="col-12">
+            <button mat-button color="accent">
+                <mat-icon>settings</mat-icon>
+                Account Settings
+            </button>
+        </div>
+        <div class="col-12">
+            <ul class="list-group">
+              <li class="list-group-item">
+                  <div class="row">
+                      <div class="col ms-2 p-1">
+                          <span>Display Languade</span>
+                      </div>
+                      <div class="col-4 pt-1">
+                          <select class="custom-select">
+                              <option value="English">English</option>
+                              <option value="Spanish">Spanish</option>
+                              <option value="French">French</option>
+                          </select>
+                      </div>
+                  </div>
+              </li> 
+            </ul>
+        </div>
+      </div> 
+  </div>
+</div>

@@ -35,6 +35,48 @@
                                 Stop Clock</button>
                         </div>
                     </div>
+                    <div class="row mt-3">
+                        <div class="col">
+                            <label for="" class="form-label">Select Dates</label>
+                            <select class="form-select">
+                                <option>Today</option>
+                            </select> 
+                        </div>
+                    </div>
+                    <div class="row mt-3">
+                        <div class="col">
+                            <table class="table">
+                                <thead>
+                                    <tr>
+                                        <th>Time Stamp</th>
+                                        <th>Start</th>
+                                        <th>End</th>
+                                        <th>Duration</th> 
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>02/14/2024</td>
+                                        <td>08:00 AM</td>
+                                        <td>12:00 PM</td>
+                                        <td>04:00</td>
+                                    </tr>
+                                    <tr>
+                                        <td>02/14/2024</td>
+                                        <td>01:00 AM</td>
+                                        <td>05:00 PM</td>
+                                        <td>04:00</td>
+                                    </tr>
+                                </tbody>
+                                <tfoot>
+                                    <tr>
+                                        <td colspan="3" class="text-end">Total</td>
+                                        <td>08:00</td>
+                                    </tr>
+                                </tfoot>
+                            </table>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -49,8 +91,8 @@
                     <div class="row mb-3">
                         <div class="col">
                             <label for="" class="form-label">Select Work Order</label>
-                            <select class="form-select">
-                                <option  *ngFor="let task of taskList; let i = index;">#{{ task.order.number }} {{ task.jobsite.company }}</option>
+                            <select [(ngModel)]="selectOrderNumber" class="form-select">
+                                 <option [value]="task.order.number" *ngFor="let task of taskList; let i = index;">#{{ task.order.number }} {{ task.jobsite.company }}</option>
                             </select> 
                         </div>
                     </div>
@@ -78,26 +120,21 @@
                     </div> 
                     <div class="row mb-3">
                         <div class="col">
-                            <div class="card mb-2" *ngFor="let task of taskList; let i = index;">  
-                                <table class="table table-borderless mb-0">
-                                    <tbody>
-                                        <tr>
-                                            <td>
-                                                <span>#{{ task.order.number }} <strong>{{ task.jobsite.company }}</strong></span>
-                                            </td>
-                                            <td> 
-                                                <div class="block float-end mt-1 clock-time {{ task.order.status | lowercase }}">
-                                                    <span class="me-1">00:{{ task.order.clockTime }}</span>
-                                                </div>
-                                            </td>
-                                        </tr>
-                                    </tbody>
-                                </table>
+                            <div class="card mb-2 p-2" *ngFor="let task of taskList; let i = index;" [ngClass]="{'bg-selected': selectOrderNumber == task.order.number}">   
+                                <div class="row" (click)="onSelect(task.order.number)">
+                                    <div class="col">
+                                        <span>#{{ task.order.number }} <strong>{{ task.jobsite.company }}</strong></span>
+                                        <i *ngIf="selectOrderNumber == task.order.number" class="material-icons float-end m-0" style="font-size: 20px;">access_time</i>
+                                    </div>
+                                    <div class="col-3 text-right">
+                                        <span class="me-1">00:{{ task.order.clockTime }}</span>
+                                    </div>
+                                </div> 
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
+            </div> 
         </div>
     </mat-tab>
 </mat-tab-group>

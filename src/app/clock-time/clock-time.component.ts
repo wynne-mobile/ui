@@ -8,5 +8,9 @@ import { SampleData } from '../shared/data/sample-data';
 })
 export class ClockTimeComponent {
   taskList: Array<any> = SampleData.TaskListCollection;
+  selectOrderNumber = null;
 
+  onSelect = function (number) {
+    this.selectOrderNumber = number;
+  }
 }
