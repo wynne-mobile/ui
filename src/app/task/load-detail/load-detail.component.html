@@ -19,18 +19,23 @@
       <ul class="list-group">
         <li class="list-group-item text-center">
           <img src="./assets/item1.jpg" alt="" class="img-fluid img-item">
-        </li>
+          <div class="row mt-2">
+            <div class="col">
+              <button style="width: 100%; border:0px; background-color: white; padding-top: 8px;">Not Start
+                </button>
+            </div>
+            <div class="col-2"> 
+              <button style="width: 100%; border:0px; background-color: white; padding-top: 5px;"><mat-icon>arrow_right_alt</mat-icon>
+              </button>
+           </div>
+            <div class="col">
+              <button mat-raised-button color="accent" style="width: 100%;">
+                <mat-icon>playlist_add_check</mat-icon> En Route</button>
+            </div>
+          </div>
+        </li> 
         <li class="list-group-item">
-          <span class="strong">Status</span>
-          <span class="float-end">
-            <select class="custom-select">
-              <option value="{{ load.status }}">{{ load.status }}</option>
-              <option value="Other">Other</option> 
-            </select>
-          </span>
-        </li>
-        <li class="list-group-item">
-          <span class="strong">Machine ID</span>
+          <span class="strong">Equipment ID</span>
           <span class="float-end">{{ load.mechanicDetail.machineId }}</span>
         </li>
         <li class="list-group-item">
@@ -62,8 +67,7 @@
           <span class="float-end">{{ load.driverDetail.lastKnowLocation }}</span>
         </li>
       </ul>
-    </div>
-    <div class="col-12">
+    <!-- <div class="col-12">
       <div class="header-bar">Requirement</div>
       <ul class="list-group">
         <li class="list-group-item text-center">
@@ -119,39 +123,19 @@
           <span class="float-end">{{ load.driverDetail.weight }} lbs</span>
         </li>
       </ul>
+    </div> -->
+    <div class="row mt-2">
+      <div class="col">
+        <button [routerLink]="['/task/load-edit']"
+        [queryParams]="{taskId: task.id, loadId: load.id}" mat-raised-button color="light" style="width: 100%;">
+          <mat-icon>edit</mat-icon> Update Load Info</button>
+      </div>
+      <div class="col-5">
+        <button mat-raised-button color="accent" style="width: 100%;">
+          <mat-icon>check</mat-icon> Complete</button>
+      </div>
     </div>
-    <mat-tab-group class="mat-bottom-screen" backgroundColor="accent">
-      <mat-tab>
-        <ng-template mat-tab-label>
-          <mat-icon class="example-tab-icon">location_on</mat-icon>
-          <span>Location</span>
-        </ng-template>
-      </mat-tab>
-      <mat-tab>
-        <ng-template mat-tab-label>
-          <mat-icon class="example-tab-icon">camera_alt</mat-icon>
-          <span>Pictures</span>
-        </ng-template>
-      </mat-tab>
-      <mat-tab>
-        <ng-template mat-tab-label>
-          <mat-icon class="example-tab-icon">playlist_add_check</mat-icon>
-          <span>Check List</span>
-        </ng-template>
-      </mat-tab>
-      <mat-tab>
-        <ng-template mat-tab-label>
-          <mat-icon class="example-tab-icon">gesture</mat-icon>
-          <span>Signature</span>
-        </ng-template>
-      </mat-tab>
-      <mat-tab>
-        <ng-template mat-tab-label>
-          <mat-icon class="example-tab-icon">attach_file</mat-icon>
-          <span>File Attach</span>
-        </ng-template>
-      </mat-tab>
-    </mat-tab-group>
+  </div> 
   </div>
   <!-- Mechanic Mode -->
   <div *ngIf="load.mode === 'Mechanic'" class="row mt-2">
@@ -163,19 +147,11 @@
           <div class="mt-2">
             <span><strong>{{ task.jobsite.company }}</strong></span>
             <div style="font-size: 80%;margin-top: -6px;">{{
-                task.order.address }}</div> 
-                <span class="badge bg-secondary order-status {{ task.order.status | lowercase }}">{{ task.order.status }}</span>
-              </div>
-        </li>
-        <li class="list-group-item">
-          <span class="strong">Status</span>
-          <span class="float-end">
-            <select class="custom-select">
-              <option value="{{ load.status }}">{{ load.status }}</option>
-              <option value="Other">Other</option> 
-            </select>
-          </span>
-        </li>
+              task.order.address }}</div>
+            <span class="badge bg-secondary order-status {{ task.order.status | lowercase }}">{{ task.order.status
+              }}</span>
+          </div>
+        </li> 
         <li class="list-group-item">
           <span class="strong">Machine</span>
           <span class="float-end">{{ load.mechanicDetail.machine }} {{ load.mechanicDetail.machineId }}</span>
@@ -205,8 +181,17 @@
           <span class="float-end">Pending</span>
         </li>
       </ul>
-
-      <ul class="list-group mt-2">
+      <div class="row mt-2">
+        <div class="col">
+          <button mat-raised-button color="light" style="width: 100%;">
+            <mat-icon>edit</mat-icon> Change WO</button>
+        </div>
+        <div class="col">
+          <button mat-raised-button color="accent" style="width: 100%;">
+            <mat-icon>check</mat-icon> Complete WO</button>
+        </div>
+      </div>
+      <!-- <ul class="list-group mt-2">
         <li class="list-group-item">
           <div class="row">
             <div class="col">
@@ -217,14 +202,8 @@
               <h2 class="float-end">00:00</h2>
             </div>
           </div>
-          <div class="row mt-2">
-            <div class="col">
-              <button mat-raised-button color="accent" style="width: 100%;">
-                <mat-icon>check</mat-icon> Complete Work Order</button>
-            </div>
-          </div>
         </li>
-      </ul>
+      </ul> -->
     </div>
   </div>
   <div *ngIf="!isMenuListFullScreen" class="mat-bottom-screen row">

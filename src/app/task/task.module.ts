@@ -12,7 +12,8 @@ import { MaterialModule } from '../material-module';
 import { MenuFileComponent } from './menu-file/menu-file.component'; 
 import { ModdalNewLoadComponent } from './moddal-new-load/moddal-new-load.component';
 import { MenuAssignMechanicComponent } from './menu-assign-mechanic/menu-assign-mechanic.component';
-import { ModalNewClockTimeComponent } from './modal-new-clock-time/modal-new-clock-time.component'; 
+import { ModalNewClockTimeComponent } from './modal-new-clock-time/modal-new-clock-time.component';
+import { LoadEditComponent } from './load-edit/load-edit.component'; 
 
 
 
@@ -25,7 +26,7 @@ import { ModalNewClockTimeComponent } from './modal-new-clock-time/modal-new-clo
     MenuLaborComponent,
     MenuStepsComponent, 
     MenuSmartFormComponent, 
-    ModdalNewLoadComponent, MenuAssignMechanicComponent, ModalNewClockTimeComponent
+    ModdalNewLoadComponent, MenuAssignMechanicComponent, ModalNewClockTimeComponent, LoadEditComponent
   ],
   imports: [
     CommonModule,
