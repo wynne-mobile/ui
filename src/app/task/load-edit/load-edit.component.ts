@@ -12,6 +12,7 @@ import { MenuSmartFormComponent } from '../menu-smart-form/menu-smart-form.compo
 import { MenuStepsComponent } from '../menu-steps/menu-steps.component';
 import { ModdalNewLoadComponent } from '../moddal-new-load/moddal-new-load.component';
 import { MenuAssignMechanicComponent } from '../menu-assign-mechanic/menu-assign-mechanic.component';
+import { ModalLoadUpdateConfirmComponent } from '../load-detail/modal-load-update-confirm/modal-load-update-confirm.component';
 
 @Component({
   selector: 'app-load-edit',
@@ -93,6 +94,13 @@ export class LoadEditComponent implements OnInit {
         modalDialog = this.matDialog.open(MenuStepsComponent, dialogConfig);
         break;
     }
+  } 
+  
+  updateLoadDetail = function () { 
+    const dialogConfig = new MatDialogConfig(); 
+    dialogConfig.disableClose = false;
+    dialogConfig.id = "modal-new-load"; 
+    dialogConfig.width = "80%"; 
+    const modalDialog = this.matDialog.open(ModalLoadUpdateConfirmComponent, dialogConfig);
   }
-
 }

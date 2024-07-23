@@ -13,7 +13,8 @@ import { MenuFileComponent } from './menu-file/menu-file.component';
 import { ModdalNewLoadComponent } from './moddal-new-load/moddal-new-load.component';
 import { MenuAssignMechanicComponent } from './menu-assign-mechanic/menu-assign-mechanic.component';
 import { ModalNewClockTimeComponent } from './modal-new-clock-time/modal-new-clock-time.component';
-import { LoadEditComponent } from './load-edit/load-edit.component'; 
+import { LoadEditComponent } from './load-edit/load-edit.component';
+import { ModalLoadUpdateConfirmComponent } from './load-detail/modal-load-update-confirm/modal-load-update-confirm.component'; 
 
 
 
@@ -26,7 +27,7 @@ import { LoadEditComponent } from './load-edit/load-edit.component';
     MenuLaborComponent,
     MenuStepsComponent, 
     MenuSmartFormComponent, 
-    ModdalNewLoadComponent, MenuAssignMechanicComponent, ModalNewClockTimeComponent, LoadEditComponent
+    ModdalNewLoadComponent, MenuAssignMechanicComponent, ModalNewClockTimeComponent, LoadEditComponent, ModalLoadUpdateConfirmComponent
   ],
   imports: [
     CommonModule,
